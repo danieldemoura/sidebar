@@ -17,7 +17,7 @@
 
 body {
     background-color: var(--body-bg-color);
-    display: grid;
+    display: flex;
     width: 100vw;
     height: 100vh;
 }
@@ -25,17 +25,18 @@ body {
 header {
     background-color: var(--green);
     padding-top: 26px;
-    padding-left: 27px;
-    position: fixed;
-    z-index: 5;
+    position: absolute; 
+    z-index: 5; 
     width: 78px;
     height: 100%;
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    
-    transition: width .7s;
+}
+
+.logo img, ul, .btn_menu {
+    padding-left: 27px;
 }
 
 header > div {
@@ -45,7 +46,6 @@ header > div {
 header > div figure {
     width: 0px;
     overflow: hidden;
-    transition: width .6s;
 }
 
 
@@ -74,18 +74,6 @@ nav ul li {
     cursor: pointer;
 }
 
-nav ul li img:hover {
-    filter: invert(89%) sepia(99%) saturate(1%) hue-rotate(296deg) brightness(115%) contrast(100%);
-}
-
-nav ul li img:hover + a {
-    color: white;
-}
-
-nav ul li a:hover {
-    color: white;
-}
-
 nav ul li input {
     width: 50px;
     height: 50px;
@@ -95,7 +83,7 @@ nav ul li input {
     padding: 0px 10px 0px 40px;
     margin-left: -14px;
     
-    transition: width .7s;
+    cursor: pointer;
 }
 
 input::-webkit-input-placeholder {
@@ -108,12 +96,15 @@ input::-webkit-input-placeholder {
     left: 25px;
 }
 
-article {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
+.lupa:hover {
+    filter: invert(0%) sepia(0%) brightness(0%) contrast(100%);
+}
 
-    width: 78px;
+.footer {
+    position: absolute;
+    bottom: 0px;
+
+    width: 100%;
     height: 60px;
     padding: 8px 14px;
     background-color: var(--light-grey);
@@ -121,11 +112,9 @@ article {
     display: flex;
     align-items: center;
     justify-content: none;
-
-    transition: width .7s;
 }
 
-article figure {
+.footer figure {
     align-items: center;
     display: flex;
     gap: 9px;
@@ -133,7 +122,6 @@ article figure {
     width: 7px;
     overflow: hidden;
     opacity: 0;
-    transition: width .7s, opacity .6s;
 }
 
 div.hgroup h1, div.hgroup h2 {
@@ -161,11 +149,10 @@ a {
     text-decoration: none;
     color: var(--text-color);
     opacity: 0;
-
-    transition: opacity .7s;
 }
 
 main {
+    width: 100%;
     padding-left: 78px;
     transition: padding-left .7s;
     overflow: hidden;
@@ -182,48 +169,50 @@ main img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 10%;
     filter: brightness(20%);
 }
 
-
-/* Estilos que espande o Sidebar */
-.expand, .expand-article {
+/* Estilo que espande o Sidebar */
+header.active {
     width: 250px;
-    transition: width .7s;
 }
 
-.expand-article {
+header.active .logo {
+    width: 185px;
+}
+
+header.active .buscar {
+    width: 222px;
+}
+
+header.active ul li a {
+    opacity: 1;
+}
+
+header.active .footer {
     justify-content: space-between;
 }
 
-.expand-a {
-    opacity: 1;
-    transition: opacity .7s;
-}
-
-.expand-buscar {
-    width: 222px;
-    transition: width .7s;
-}
-
-.expand-figure {
+header.active .footer figure {
     width: 150px;
     opacity: 1;
-    transition: width .7s, opacity .7s;
 }
 
-.expand-logo {
-    width: 185px;
-    transition: width .7s;
+header.active + main {
+    padding-left: 250px; 
 }
 
-.expand-main {
-    padding-left: 250px;
-    transition: padding-left .7s;
+header, main, figure, .buscar, .logo, .footer, input, a {
+    transition: all .7s;
+}
+
+.active, .active main, .active figure, .active .buscar, .active .logo, .active .footer, .active input, .active a {
+    transition: all .7s;
 }
 
 @media screen and (max-width: 600px) {
-    .expand-main {
+    header.active + main {
         padding-left: 78px;
     }
 }
