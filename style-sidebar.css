@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --body-bg-color: #dce4e3;
+    --green: #18c29c;
+    --light-green: #8ed7c6;
+    --light-grey: #dce4e391;
+    --text-color: #084236;
+}
+
+body {
+    background-color: var(--body-bg-color);
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--green);
+    padding-top: 26px;
+    padding-left: 27px;
+    position: fixed;
+    z-index: 5;
+    width: 78px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+    transition: width .7s;
+}
+
+header > div {
+    display: flex;
+}
+
+header > div figure {
+    width: 0px;
+    overflow: hidden;
+    transition: width .6s;
+}
+
+
+header, nav ul {
+    align-items: flex-start;
+}
+
+.btn_menu, .btn_fechar {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li:first-child {
+    margin: 26px 0px 21px 0px;
+}
+
+nav ul li {
+    margin-bottom: 34px;
+    display: flex;
+    gap: 13px;
+    cursor: pointer;
+}
+
+nav ul li img:hover {
+    filter: invert(89%) sepia(99%) saturate(1%) hue-rotate(296deg) brightness(115%) contrast(100%);
+}
+
+nav ul li img:hover + a {
+    color: white;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+nav ul li input {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--body-bg-color);
+    padding: 0px 10px 0px 40px;
+    margin-left: -14px;
+    
+    transition: width .7s;
+}
+
+input::-webkit-input-placeholder {
+    color: var(--text-color);
+}
+
+.lupa {
+    position: absolute;
+    top: 98px;
+    left: 25px;
+}
+
+article {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+
+    width: 78px;
+    height: 60px;
+    padding: 8px 14px;
+    background-color: var(--light-grey);
+
+    display: flex;
+    align-items: center;
+    justify-content: none;
+
+    transition: width .7s;
+}
+
+article figure {
+    align-items: center;
+    display: flex;
+    gap: 9px;
+
+    width: 7px;
+    overflow: hidden;
+    opacity: 0;
+    transition: width .7s, opacity .6s;
+}
+
+div.hgroup h1, div.hgroup h2 {
+    color: var(--text-color);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+div.hgroup h1 {
+    font-size: 15px;
+}
+
+div.hgroup h2 {
+    font-size: 12px;
+    margin-top: -3px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+}
+
+a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0;
+
+    transition: opacity .7s;
+}
+
+main {
+    padding-left: 78px;
+    transition: padding-left .7s;
+    overflow: hidden;
+}
+
+main h1 {
+    position: absolute;
+    z-index: 2;
+    padding: 18px;
+    color: var(--body-bg-color);
+}
+
+main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(20%);
+}
+
+
+/* Estilos que espande o Sidebar */
+.expand, .expand-article {
+    width: 250px;
+    transition: width .7s;
+}
+
+.expand-article {
+    justify-content: space-between;
+}
+
+.expand-a {
+    opacity: 1;
+    transition: opacity .7s;
+}
+
+.expand-buscar {
+    width: 222px;
+    transition: width .7s;
+}
+
+.expand-figure {
+    width: 150px;
+    opacity: 1;
+    transition: width .7s, opacity .7s;
+}
+
+.expand-logo {
+    width: 185px;
+    transition: width .7s;
+}
+
+.expand-main {
+    padding-left: 250px;
+    transition: padding-left .7s;
+}
+
+@media screen and (max-width: 600px) {
+    .expand-main {
+        padding-left: 78px;
+    }
+}
