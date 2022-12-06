@@ -1,4 +1,5 @@
-# <center> **Sidebar** </center>
+<h1 align="center"> Sidebar </h1>
+
 > Nesse desafio foi proposto criar um menu Sidebar, e todas vez que clicasse no botão do menu, expandisse o Menu, e quando clicasse de novo voltasse ao seu tamanho original.
 
 ![Sidebar_1](./.github/preview_1.png)
@@ -11,7 +12,8 @@
 * **Figma**
 
 
-## <center> **Código CSS** </center>
+<h2 align="center"> Código CSS </h2>
+
 ```CSS
 /* Estilos que espande o Sidebar */
 .expand, .expand-article {
@@ -56,7 +58,8 @@
 }
 ```
 
-## <center> **Código JS** <center>
+<h2 align="center"> Código JS </h2>
+
 ```JS
 const buttonMenu = document.querySelector(".btn_menu")
 
